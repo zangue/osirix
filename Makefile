@@ -34,7 +34,7 @@ DEP = $(OBJ:.o=.d)
 # Rules
 #
 .PHONY: all 
-all: osirix.img
+all: kernel.img
 
 -include $(DEP)
 
@@ -46,19 +46,19 @@ all: osirix.img
 	@$(CC) $(CPPFLAGS) $(CFLAGS) -MMD -MP -o $@ $<
 	@echo "CC    $@"
 
-osirix.elf: $(LSCRIPT) $(OBJ)
+kernel.elf: $(LSCRIPT) $(OBJ)
 	@$(LD) -T$(LSCRIPT) -o $@ $(OBJ) $(LIBGCC)
 	@echo "LD    $@"
 
-osirix.img: osirix.elf
+kernel.img: kernel.elf
 	@$(OBJCOPY) $< -O binary $@
-	@echo "osirix.img"
+	@echo "kernel.img"
 
 .PHONY: clean
 clean:
-	@rm -f osirix.elf osirix.img
-	@echo "CLEAN    osirix.elf"
-	@echo "CLEAN    osirix.img"
+	@rm -f kernel.elf kernel.img
+	@echo "CLEAN    kernel.elf"
+	@echo "CLEAN    kernel.img"
 	@rm -f $(OBJ)
 	@echo "CLEAN    $(OBJ)"
 	@rm -f $(DEP)
