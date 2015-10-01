@@ -2,6 +2,11 @@
 *.slo
 *.lo
 *.o
+*.d
+
+# image or elf file
+*.elf
+*.img
 
 # Compiled Dynamic libraries
 *.so

@@ -1,7 +1,5 @@
 /*
- * gpio.c
- *
- * This file is part of Embedded-OS
+ * drivers/gpio.c
  *
  * Copyrigth (c) 2015, Armand Zangue <armand@zangue.com>
  */

@@ -1,13 +1,11 @@
 /*
- * vsprintf.c
- *
- * This file is part of Embedded-OS
+ * kernel/vsprintf.c
  *
  * Copyright (c) 2015, Armand Zangue <armand@zangue.com>
  */
 
 #include <stdarg.h>
-#include "uart.h"
+#include <osirix/uart.h>
 
 static void print_hex(unsigned int val, int do_prefix, int width)
 {

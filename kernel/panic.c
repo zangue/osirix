@@ -1,13 +1,12 @@
 /*
- * panic.c
- *
- * This file is part of Embedded-OS
+ * kernel/panic.c
  *
  * Copyrigth (c) 2015, Armand Zangue <armand@zangue.com>
  */
 
- #include "printk.h"
+ #include <osirix/printk.h>
 
+//TODO
 __attribute__((noreturn))
 void panic(const char * s)
 {

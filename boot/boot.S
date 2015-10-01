@@ -1,8 +1,6 @@
 /*
- * boot.S
+ * boot/boot.S
  * 
- * This file is part of Embedded-OS
- *
  * Copyrigth (c) 2015, Armand Zangue <armand@zangue.com>
  */
 

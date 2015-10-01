@@ -1,14 +1,12 @@
 /*
- * main.c
- *
- * This file is part of Embedded-OS
+ * boot/main.c
  *
  * Copyright (c) 2015, Armand Zangue <armand@zangue.com>
  */
 
-#include "uart.h"
-#include "gpio.h"
-#include "printk.h"
+#include <osirix/uart.h>
+#include <osirix/gpio.h>
+#include <osirix/printk.h>
 
 
 static void __annouce(void);

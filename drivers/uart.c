@@ -1,12 +1,10 @@
 /*
- * uart.c
+ * drivers/uart.c
  * 
- * This file is part of Embedded-OS
- *
  * Copyright (c) 2015, Armand Zangue <armand@zangue.com>
  */
 
-#include "gpio.h"
+#include <osirix/gpio.h>
 
 /* UART base address - Broadcom BCM2835 */
 #define UART_BASE 0x20201000

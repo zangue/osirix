@@ -12,9 +12,9 @@
 # source
 #
 LSCRIPT = linker.ld
-OBJ = boot.o main.o
-OBJ += gpio.o uart.o
-OBJ += vsprintf.o printk.o panic.o
+OBJ = boot/boot.o boot/main.o
+OBJ += drivers/gpio.o drivers/uart.o
+OBJ += kernel/vsprintf.o kernel/printk.o kernel/panic.o
 
 #
 # Config

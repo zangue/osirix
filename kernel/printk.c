@@ -1,13 +1,11 @@
 /*
- * printk.c
- *
- * This file is part of Embedded-OS
+ * kernel/printk.c
  *
  * Copyright (c) 2015, Armand Zangue <armand@zangue.com>
  */
 
 #include <stdarg.h>
-#include "vsprintf.h"
+#include <osirix/vsprintf.h>
 
 void printk(char *fmt, ...)
 {
