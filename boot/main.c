@@ -30,7 +30,7 @@ void start_kernel(unsigned int r0, unsigned int r1, unsigned atags)
 	printk("Let me show you a demo\n");
 
 	printk("A character: %c\n", '@');
-	printk("A string: %s\n", "My name is Embedded-OS.");
+	printk("A string: %s\n", "My name is Osirix.");
 	printk("A number: %x", 0x12345678);
 	
 	while (1) {
@@ -43,7 +43,7 @@ static void __annouce(void)
 {
 	printk("\033[1m"); // Bold text
  	printk("\n\r");
-	printk("\n\r\t\tWelcome to Embedded-OS - A bare metal kernel \n\r");
+	printk("\n\r\t\tWelcome to Osirix \n\r");
 	printk("\n\r");
 	printk("\033[0m"); // Bold text ends
 }
