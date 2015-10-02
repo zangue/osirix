@@ -4,9 +4,9 @@
  * Copyright (c) 2015, Armand Zangue <armand@zangue.com>
  */
 
+#include <osirix/kernel.h>
 #include <osirix/uart.h>
 #include <osirix/gpio.h>
-#include <osirix/printk.h>
 
 
 static void __annouce(void);

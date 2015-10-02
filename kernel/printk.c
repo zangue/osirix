@@ -5,9 +5,9 @@
  */
 
 #include <stdarg.h>
-#include <osirix/vsprintf.h>
+#include <osirix/kernel.h>
 
-void printk(char *fmt, ...)
+void printk(const char *fmt, ...)
 {
 	va_list ap;
 

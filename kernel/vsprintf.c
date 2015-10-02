@@ -52,7 +52,7 @@ static void print_dec(int d)
 }
 
 __attribute__ ((format(printf,1,2)))
-void vsprintf(char *fmt, ...)
+void vsprintf(const char *fmt, ...)
 {
 	va_list ap;
 	
