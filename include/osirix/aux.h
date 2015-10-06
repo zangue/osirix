@@ -7,6 +7,15 @@
 /* AUX base address - Broadcom BCM2835 */
 #define AUX_BASE 0x20215000
 
+#define MU_IRQ		(1 << 0)
+#define SPI1_IRQ	(1 << 1)
+#define SPI2_IRQ	(1 << 2)
+
+#define MU_ENABLE	(1 << 0)
+#define SPI1_ENABLE	(1 << 1)
+#define SPI2_ENABLE	(1 << 2)
+
+
 struct aux {
 	unsigned int irq;	/* Auxiliary interrupt status */
 	unsigned int enables;	/* Auxiliary enables */
