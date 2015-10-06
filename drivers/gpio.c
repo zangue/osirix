@@ -52,7 +52,7 @@ struct gpio {
 	unsigned int gppudclk0;	/* GPIO Pin Pull-up/down Enable Clock 0 */
 	unsigned int gppudclk1;	/* PIO Pin Pull-up/down Enable Clock 1 */
 	unsigned int reserved12;
-	unsigned char test;
+	unsigned int test;
 };
 
 static volatile struct gpio * const gpio = (struct gpio *) GPIO_BASE;
