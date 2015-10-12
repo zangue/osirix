@@ -1,5 +1,5 @@
 # Osirix
 
-Hobby (minimalistic) OS kernel for the RPI. I'm doing this for myself; for the purpose of learning and fun. So there is absolutly no warranty all. Use it at your own risk.
+Hobby (minimalistic) OS kernel for the RPI.
 
-This is work in progress...
+Still work in progress... I will update this README as soon as I achieve a working release.

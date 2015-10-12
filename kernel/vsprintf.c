@@ -51,11 +51,12 @@ static void print_dec(int d)
 	uart_tx(d % 10 + '0');
 }
 
+//TODO: Make it use buffer
 __attribute__ ((format(printf,1,2)))
 void vsprintf(const char *fmt, ...)
 {
 	va_list ap;
-	
+
 	va_start(ap, fmt);
 
 	while (*fmt) {
@@ -101,4 +102,3 @@ void vsprintf(const char *fmt, ...)
 	}
 	va_end(ap);
 }
-

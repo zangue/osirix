@@ -16,12 +16,14 @@ OBJ = boot/boot.o boot/main.o
 OBJ += drivers/gpio.o drivers/uart.o
 OBJ += kernel/vsprintf.o kernel/printk.o kernel/panic.o
 
+CROSSTOOL = arm-linux-gnueabihf
+
 #
 # Config
 #
-CC = arm-linux-gnueabihf-gcc
-LD = arm-linux-gnueabihf-ld
-OBJCOPY = arm-linux-gnueabihf-objcopy
+CC = $(CROSSTOOL)-gcc
+LD = $(CROSSTOOL)-ld
+OBJCOPY = $(CROSSTOOL)-objcopy
 
 SFLAGS = -mcpu=arm1176jzf-s -fpic -ffreestanding -c
 CFLAGS = -mcpu=arm1176jzf-s -fpic -ffreestanding -std=gnu99 -O2 -Wall -Wextra -c
@@ -33,8 +35,8 @@ DEP = $(OBJ:.o=.d)
 #
 # Rules
 #
-.PHONY: all 
-all: kernel.img
+.PHONY: all
+all: osirix.img
 
 -include $(DEP)
 
@@ -46,19 +48,19 @@ all: kernel.img
 	@$(CC) $(CPPFLAGS) $(CFLAGS) -MMD -MP -o $@ $<
 	@echo "CC    $@"
 
-kernel.elf: $(LSCRIPT) $(OBJ)
+osirix.elf: $(LSCRIPT) $(OBJ)
 	@$(LD) -T$(LSCRIPT) -o $@ $(OBJ) $(LIBGCC)
 	@echo "LD    $@"
 
-kernel.img: kernel.elf
+osirix.img: osirix.elf
 	@$(OBJCOPY) $< -O binary $@
-	@echo "kernel.img"
+	@echo "osirix.img is ready."
 
 .PHONY: clean
 clean:
 	@rm -f kernel.elf kernel.img
-	@echo "CLEAN    kernel.elf"
-	@echo "CLEAN    kernel.img"
+	@echo "CLEAN    osirix.elf"
+	@echo "CLEAN    osirix.img"
 	@rm -f $(OBJ)
 	@echo "CLEAN    $(OBJ)"
 	@rm -f $(DEP)

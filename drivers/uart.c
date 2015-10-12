@@ -1,9 +1,11 @@
 /*
  * drivers/uart.c
- * 
- * Copyright (c) 2015, Armand Zangue <armand@zangue.com>
+ *
+ * Copyright (c) 2015, Armand Zangue
  */
 
+#include <osirix/kernel.h>
+#include <osirix/init.h>
 #include <osirix/gpio.h>
 
 /* UART base address - Broadcom BCM2835 */
@@ -38,9 +40,22 @@ static volatile struct uart * const uart = (struct uart *)UART_BASE;
 #define UART_TX        (1 << 5)
 
 /* Settings */
-#define UART_CLOCK	3000000	/* 3MHz */
+#define UART_CLOCK	30000000	/* 3MHz */
 #define UART_BAUD	115200
 
+char uart_rx(void)
+{
+	while(uart->fr & UART_RX) {}
+	return uart->dr;
+}
+
+void uart_tx(char byte)
+{
+	while(uart->fr & UART_TX) {}
+	uart->dr = byte;
+}
+
+//static int __init uart_init(void)
 void uart_init(void)
 {
 	/* Disable uart */
@@ -51,7 +66,7 @@ void uart_init(void)
 
 	/* Disable interupts */
 	uart->icr = 0x7ff;
-	
+
 	/*
 	 * Set baud rate: for this purpose we need to set the integer and
 	 * fractional part of the baud rate divisor.
@@ -60,8 +75,8 @@ void uart_init(void)
 	 * The baud rate divisor is calculated as follows:
 	 * BAUDDIV = (FUARTCLK / (16 Baud rate))
 	 * where FUARTCLK is the UART reference clock frequency. The BAUDDIV is
-	 * comprised of the integer value IBRD and the fractional value FBRD. 
-	 * 
+	 * comprised of the integer value IBRD and the fractional value FBRD.
+	 *
 	 * NOTE:
 	 * The contents of the IBRD and FBRD registers are not up
 	 * dated until transmission or reception of the current character is
@@ -86,19 +101,14 @@ void uart_init(void)
 	                      (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10);
 
 	/* Enable UART */
-	uart->cr = (1 << 0) | (1 << 8) | (1 << 9);                     
+	uart->cr = (1 << 0) | (1 << 8) | (1 << 9);
 }
 
-char uart_rx(void)
+// static void __exit uart_exit
+static void uart_exit(void)
 {
-	while(uart->fr & UART_RX) {}
-	return uart->dr;
+
 }
 
-void uart_tx(char byte)
-{
-	while(uart->fr & UART_TX) {}
-	uart->dr = byte;
-}
-
-
+//device_init(uart_init);
+//device_exit(uart_exit);

@@ -1,7 +1,7 @@
 /*
  * kernel/printk.c
  *
- * Copyright (c) 2015, Armand Zangue <armand@zangue.com>
+ * Copyright (c) 2015, Armand Zangue
  */
 
 #include <stdarg.h>

@@ -1,14 +1,14 @@
 /*
  * boot/boot.S
- * 
- * Copyrigth (c) 2015, Armand Zangue <armand@zangue.com>
+ *
+ * Copyrigth (c) 2015, Armand Zangue
  */
 
 // To keep this in the first portion of the binary.
 .section ".text.boot"
- 
+
 .global _start
- 
+
 _start:
 	// Set the stack pointer, which progresses downwards through memory
 	ldr sp, =0x8000
@@ -18,4 +18,4 @@ _start:
 	b start_kernel
 
 __loop:
-	b __loop 
+	b __loop
